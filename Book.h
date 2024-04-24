@@ -2,6 +2,7 @@
 #ifndef BOOK_H
 #define BOOK_H
 #include <string>
+#include <vector>
 using namespace std;
 class Book
 {
@@ -10,29 +11,19 @@ private:
     string b_name;
     string b_genre;
     string b_title;
+    // variable to store the books
 
 public:
-    Book(string, string, string);
-    ~Book();
     // setters
-    void setAuthor();
-    void setTitle();
-    void setGenre();
+    void setAuthor(string);
+    void setTitle(string);
+    void setGenre(string);
     // getters
     string getAuthor() const;
     string getTitle() const;
     string getGenre() const;
-
+    // get all this info and return
+    Book getInfo();
 };
 
-Book::Book(string name, string title, string genre)
-{
-    b_name = name;
-    b_title = title;
-    b_genre = genre;
-}
-
-Book::~Book()
-{
-}
 #endif
