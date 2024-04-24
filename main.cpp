@@ -3,44 +3,35 @@
 #include <vector>
 using namespace std;
 void menu(); // display menu options
-Book getInfo();
+void addBooks(Book, vector<Book>);
 int main()
 {
     vector<Book> books; // holds a list of book objects
     Book a_book;        // a book object
+    
     menu();
     int choice;
     do
     {
+        cout << "\n";
+        menu();
+        cout << "Select a menu option: ";
         cin >> choice;
         switch (choice)
         {
         case 1:
-            a_book = getInfo();
-            books.push_back(a_book);
+            addBooks(a_book, books);
             break;
         case 2:
-            /* code */
             break;
         case 3:
-            /* code */
             break;
         case 4:
-            /* code */
             break;
         case 5:
             // view all books
-            for (int i = 0; i < books.size(); i++)
-            {
-                cout << "i + 1" << endl;
-                cout << books[i].getAuthor() << endl;
-                cout << books[i].getTitle() << endl;
-                cout << books[i].getGenre() << endl;
-            }
-            /* code */
             break;
         case 6:
-            /* code */
             break;
         default:
             break;
@@ -76,5 +67,13 @@ Book getInfo()
     cin.ignore();
     cin >> genre;
     book.setGenre(genre);
+    // add book to vector
     return book;
+}
+
+// add books to the library and file
+void addBooks(Book newBook, vector<Book> books)
+{
+    newBook = getInfo();
+    books.push_back(newBook);
 }
