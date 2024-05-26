@@ -22,8 +22,6 @@ public:
     string getAuthor() const;
     string getTitle() const;
     string getGenre() const;
-    // get all this info and return
-    Book getInfo();
 };
 
 #endif

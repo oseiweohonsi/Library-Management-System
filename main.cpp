@@ -7,14 +7,13 @@ using namespace std;
 void menu();                         // display menu options
 void addBooks(Book, vector<Book> &); // add a book to library
 void viewBooks(vector<Book> &);
-void searchBooks(vector<Book> &); // search for books from the vector
+bool searchBooks(vector<Book> &); // search for books from the vector
 int main()
 {
     // a vector to hold books
     vector<Book> books;
     Book newBook; // new book object
-    menu();
-    int choice; // menu option
+    int choice;   // menu option
     do
     {
         menu();
@@ -27,6 +26,8 @@ int main()
         case 2:
             viewBooks(books);
             break;
+        case 3:
+            searchBooks(books);
         default:
             break;
         }
@@ -65,23 +66,29 @@ void viewBooks(vector<Book> &books)
     }
 }
 
-void searchBooks(vector<Book> &books)
+bool searchBooks(vector<Book> &books)
 {
-    // perform the search
-    string word;
-    // search objects for word, first author, title then genre
-    cout << "Search for book: ";
-    cin.ignore();
-    int i = 0;
-    while(word[i] != '\0')
+    string searc_word; // word for the search
+    for (int i = 0; i < books.size(); i++)
     {
-        word[i] = tolower(word[i]);
+        string word = books[i].getAuthor();
+        while (word[i] != '\0')
+        {
+            word[i] = tolower(word[i]);
+            i++;
+        }
+        cout << word << endl;
+        
     }
 
-
-
+    for (int i = 0; i < books.size(); i++)
+    {
+        cout << books[i].getAuthor() << endl;
+        cout << books[i].getGenre() << endl;
+        cout << books[i].getTitle() << endl;
+    }
+    return true;
 }
-
 void menu()
 {
     cout << "\t**********Library Management System**********\n";
