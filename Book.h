@@ -6,6 +6,12 @@
 class Book
 {
 	private:
-
+		std::string name;
+		std::string title;
+		std::string author;
+	public:
+		string getName();
+		string getTitle();
+		string getAuthor();
 };
 #endif
