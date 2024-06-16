@@ -28,7 +28,10 @@ int main()
             break;
         case 3:
             searchBooks(books);
-        default:
+	case 4:
+	  cout << "Thank you for using our program\n";
+	  break;
+	default: 
             break;
         }
     } while (choice != 3);
@@ -94,5 +97,6 @@ void menu()
     cout << "\t**********Library Management System**********\n";
     cout << "1. Add books\n";
     cout << "2. View books\n";
-    cout << "3. Exit\n";
+    cout << "3. Search books\n";
+    cout << "4. Exit\n";
 }
